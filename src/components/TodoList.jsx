@@ -3,6 +3,7 @@ import { toggleTodo, deleteTodo ,editTodo} from "../features/todo/todoSlice";
 import { Container, Row, Col, Card, ListGroup,
     Form, Button, Badge } from "react-bootstrap";
 import { useState } from "react";
+import {  FaPen,FaTrash } from "react-icons/fa6";
 
 function TodoList() {
   const todos = useSelector((state) => state.todos.todos);
@@ -77,15 +78,15 @@ function TodoList() {
                       </Button>
                     ) : (
                       <Button
-                        variant="warning"
+                        variant="primery"
                         size="sm"
                         onClick={() => handleEdit(todo.id, todo.text)}
                       >
-                        Edit
+                       <FaPen></FaPen> 
                       </Button>
                     )}
-                    <Button variant="danger" size="sm" onClick={() => dispatch(deleteTodo(todo.id))}>
-                      Delete
+                    <Button variant="dark" size="sm" onClick={() => dispatch(deleteTodo(todo.id))}>
+                      <FaTrash></FaTrash>
                     </Button>
                    
                   </ListGroup.Item>
